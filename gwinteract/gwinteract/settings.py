@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'posteriors',
     'calculations',
     'crispy_forms',
+    'hubble_constant',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

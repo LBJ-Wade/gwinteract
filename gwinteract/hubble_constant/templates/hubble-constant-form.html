@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+  
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+{% block nav-search %}<a class="active" href="/hubble-constant/">Hubble Constant</a>{% endblock %}
+<h1>Hubble Constant</h1>
+
+{% crispy form %}
+
+<script>
+$( document ).ready(function() {
+$("[value*='fits']").hide();
+$("[value*='galaxy']").hide();
+});
+</script>
+
+<script>
+$("input[name$='gids']").click(function() {
+    var test = $(this).val();
+    console.log("You have selected " + test);
+    console.log("Filtering Sky Map and RedShift Options");
+    console.log("First hide all currently visible options");
+    $("[value*='fits']").hide();
+    $("[value*='galaxy']").hide();
+    console.log("Show only options for this id");
+    $('[value*="' + test + '"]').show()
+});
+
+</script>
+
+{% endblock %}
